@@ -57,7 +57,7 @@ def task_run_notebooks():
                 # Executed in place so that the notebook runs from inside
                 # `src/`, where it can import the other modules.
                 f"jupyter nbconvert --execute --to notebook --inplace {notebook}",
-                f"jupyter nbconvert --to html --output-dir={OUTPUT_DIR} {notebook}",
+                f'jupyter nbconvert --to html --output-dir="{OUTPUT_DIR}" {notebook}',
                 (move, [notebook, OUTPUT_DIR / notebook.name]),
             ],
             "file_dep": [pyfile, "./src/mean_variance.py", "./src/pull_crsp.py", EXTRACT],
